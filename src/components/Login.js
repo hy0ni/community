@@ -4,6 +4,7 @@ import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -42,8 +43,8 @@ function Login() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className='form-wrap'>
+      <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
           type="email"
@@ -57,10 +58,10 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button className='btn btn-login' type="submit">로그인</button>
+        <button className='btn btn-signup' onClick={() => navigate('/signup')}>회원가입하러가기</button>
       </form>
-      <button onClick={() => navigate('/signup')}>회원가입하러가기</button>
-      {error && <p>{error}</p>}
+      {error && <p className='error-message'>{error}</p>}
     </div>
   );
 }
