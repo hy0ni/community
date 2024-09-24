@@ -1,0 +1,32 @@
+.form-wrap {
+  width: 600px;
+  margin: 10vh auto;
+  padding: 2rem;
+  border: 1px solid #000;
+
+  h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+
+    &:focus {
+      outline: none;
+      border: 1px solid rgb(139, 55, 6);
+    }
+  }
+
+  .error-message {
+    font-size: 1rem;
+    text-align: center;
+    color: rgb(182, 25, 25);
+  }
+}
