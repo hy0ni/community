@@ -13,7 +13,7 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(null); // 에러 메시지 초기화
+    setError(null);
 
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -21,20 +21,8 @@ function Login() {
       navigate('/');
     } catch (error) {
       switch (error.code) {
-        case 'auth/invalid-email':
-          setError('유효하지 않은 이메일 형식입니다.');
-          break;
-        case 'auth/user-not-found':
-          setError('등록된 이메일이 아닙니다.');
-          break;
-        case 'auth/wrong-password':
-          setError('비밀번호를 다시 확인해주세요');
-          break;
-        case 'auth/missing-password':
-          setError('비밀번호를 입력하세요.');
-          break;
-        case 'auth/too-many-requests':
-          setError('잠시 후에 다시 시도하세요.');
+        case 'auth/invalid-credential':
+          setError('이메일 및 비밀번호를 확인해주세요.');
           break;
         default:
           setError('로그인에 실패했습니다. 다시 시도해주세요.');

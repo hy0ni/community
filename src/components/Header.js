@@ -26,7 +26,7 @@ function Header() {
         {user ? (
           <>
             <h2>Welcome, {user.email}</h2>
-            <button className='btn' onClick={handleLogout}>Logout</button>
+            <button className='btn' onClick={handleLogout}>로그아웃</button>
           </>
         ) : (
           <button className='btn' onClick={() => navigate('/login')} aria-label="로그인 페이지로 이동">로그인</button>

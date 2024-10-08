@@ -23,7 +23,7 @@ function Signup() {
         case 'auth/email-already-in-use':
           setError('이미 등록된 계정입니다.');
           break;
-        case 'auth/weak-password':
+        case 'auth/password-does-not-meet-requirements':
           setError('비밀번호를 다시 확인해주세요.(예: 최소 6자 이상, 문자, 숫자, 특수문자 포함)');
           break;
         default:
@@ -52,7 +52,7 @@ function Signup() {
         />
         <button className='btn btn-login' type="submit">가입하기</button>
       </form>
-      {error && <p>{error}</p>}
+      {error && <p className='error-message'>{error}</p>}
     </div>
   );
 };
