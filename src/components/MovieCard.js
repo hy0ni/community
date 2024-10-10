@@ -5,15 +5,15 @@ function MovieCard({ movie }) {
 
   const formatReleaseDate = (dateString) => {
     const date = new Date(dateString);
-    return format(date, 'MMMM dd일 yyyy년', { locale: ko });
+    return format(date, 'yyyy.MM.dd', { locale: ko });
   };
 
   return (
-    <li className="movie-card">
+    <div className="movie-card">
       <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
       <h3>{movie.title}</h3>
-      <p>개봉일: {formatReleaseDate(movie.release_date)}</p>
-    </li>
+      <p>{formatReleaseDate(movie.release_date)} 개봉</p>
+    </div>
   )
 }
 
