@@ -10,8 +10,8 @@ function NowPlayingMovies() {
   const getNowPlayingMovies = async (page) => {
     try {
       const data = await fetchNowPlayingMovies('ko-KR', page);
-      console.log(data)
-      setMovies(data);
+      const sortedMovies = data.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+      setMovies(sortedMovies);
     } catch (error) {
       setError('현재 상영중인 영화를 로드하는데 실패했습니다.')
     }
