@@ -11,10 +11,9 @@ const apiClient = axios.create({
   },
 });
 
-// 현재 상영중인 영화 목록
-export const fetchNowPlayingMovies = async (language = 'ko-KR', page = 1) => {
+const fetchMovies = async (endpoint, language = 'ko-KR', page = 1) => {
   try {
-    const response = await apiClient.get('movie/now_playing', {
+    const response = await apiClient.get(endpoint, {
       params: { language, page },
     });
     return response.data.results;
@@ -23,29 +22,12 @@ export const fetchNowPlayingMovies = async (language = 'ko-KR', page = 1) => {
     throw error;
   }
 }
+
+// 현재 상영중인 영화 목록
+export const fetchNowPlayingMovies = (language, page) => fetchMovies('movie/now_playing', language, page);
 
 // 인기 있는 영화 목록
-export const fetchPopularMovies = async (language = 'ko-KR', page = 1) => {
-  try {
-    const response = await apiClient.get('movie/popular', {
-      params: { language, page },
-    });
-    return response.data.results;
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-}
+export const fetchPopularMovies = (language, page) => fetchMovies('movie/popular', language, page);
 
 // 개봉 예정 영화 목록
-export const fetchUpcomingMovies = async (language = 'ko-KR', page = 1) => {
-  try {
-    const response = await apiClient.get('movie/upcoming', {
-      params: { language, page },
-    });
-    return response.data.results;
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-}
+export const fetchUpcomingMovies = (language, page) => fetchMovies('movie/upcoming', language, page);
