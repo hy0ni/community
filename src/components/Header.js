@@ -21,7 +21,7 @@ function Header() {
 
   return (
     <header className='header'>
-      <h1 className='title'>커뮤니티</h1>
+      <h1 className='title'>무비차트</h1>
       <nav>
         {user ? (
           <>
